@@ -1,28 +1,43 @@
+//Angular modules
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
-import { AppComponent }  from './app.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroesComponent } from './heroes.component';
-import { HeroService } from './hero.service';
-import { routing } from './app.routing';
-import {DashboardComponent} from './dashboard.component';
+import { HttpModule }    from '@angular/http';
 
+//DB imports
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
+//My components
+import { AppComponent }         from './app.component';
+import { DashboardComponent }   from './dashboard.component';
+import { HeroesComponent }      from './heroes.component';
+import { HeroDetailComponent }  from './hero-detail.component';
+import { HeroSearchComponent }  from './hero-search.component';
+
+import { HeroService }          from './hero.service';
+import { routing }              from './app.routing';
+
+import './rxjs-extensions';
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    HttpModule,
+    routing,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   declarations: [
     AppComponent,
+    DashboardComponent,
     HeroDetailComponent,
     HeroesComponent,
-    DashboardComponent
+    HeroSearchComponent
   ],
   providers: [
-    HeroService
+    HeroService,
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}

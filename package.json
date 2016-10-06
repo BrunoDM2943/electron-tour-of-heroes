@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"electron .\" ",
+    "start": "\"electron .\" ",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",

@@ -35,7 +35,7 @@
         defaultExtension: 'js'
       },
       'angular-in-memory-web-api': {
-        main: '../build/index.js',
+        main: '../angular-in-memory-web-api/index.js',
         defaultExtension: 'js'
       }
     }
